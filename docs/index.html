@@ -1,0 +1,387 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>SkillSync AI — macOS App</title>
+    <meta
+      name="description"
+      content="SkillSync AI is a centralized AI Prompt Management System for macOS. Find, copy, and share the best prompts with your team instantly."
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      *,
+      *::before,
+      *::after {
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0;
+      }
+
+      :root {
+        --bg: #0a0a0f;
+        --surface: #13131a;
+        --border: rgba(255, 255, 255, 0.08);
+        --accent: #6c63ff;
+        --accent2: #a78bfa;
+        --text: #f0f0f5;
+        --muted: #8888aa;
+      }
+
+      body {
+        font-family: "Inter", sans-serif;
+        background: var(--bg);
+        color: var(--text);
+        min-height: 100vh;
+        overflow-x: hidden;
+      }
+
+      /* ── HERO ── */
+      .hero {
+        position: relative;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        text-align: center;
+        padding: 120px 24px 80px;
+        overflow: hidden;
+      }
+
+      .hero::before {
+        content: "";
+        position: absolute;
+        inset: 0;
+        background: radial-gradient(
+          ellipse 80% 60% at 50% 0%,
+          rgba(108, 99, 255, 0.25) 0%,
+          transparent 70%
+        );
+        pointer-events: none;
+      }
+
+      .badge {
+        display: inline-flex;
+        align-items: center;
+        gap: 6px;
+        background: rgba(108, 99, 255, 0.15);
+        border: 1px solid rgba(108, 99, 255, 0.3);
+        color: var(--accent2);
+        font-size: 13px;
+        font-weight: 500;
+        padding: 6px 14px;
+        border-radius: 999px;
+        margin-bottom: 28px;
+        letter-spacing: 0.02em;
+      }
+
+      .hero h1 {
+        font-size: clamp(2.5rem, 6vw, 4.5rem);
+        font-weight: 800;
+        line-height: 1.1;
+        letter-spacing: -0.03em;
+        background: linear-gradient(135deg, #fff 40%, var(--accent2));
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        background-clip: text;
+        margin-bottom: 20px;
+      }
+
+      .hero p {
+        font-size: clamp(1rem, 2vw, 1.2rem);
+        color: var(--muted);
+        max-width: 560px;
+        line-height: 1.7;
+        margin-bottom: 40px;
+      }
+
+      .btn-group {
+        display: flex;
+        gap: 14px;
+        flex-wrap: wrap;
+        justify-content: center;
+      }
+
+      .btn {
+        display: inline-flex;
+        align-items: center;
+        gap: 8px;
+        padding: 14px 28px;
+        border-radius: 12px;
+        font-size: 15px;
+        font-weight: 600;
+        text-decoration: none;
+        transition: all 0.2s ease;
+        cursor: pointer;
+      }
+
+      .btn-primary {
+        background: var(--accent);
+        color: #fff;
+        box-shadow: 0 0 32px rgba(108, 99, 255, 0.4);
+      }
+      .btn-primary:hover {
+        background: #7c74ff;
+        transform: translateY(-2px);
+        box-shadow: 0 0 48px rgba(108, 99, 255, 0.5);
+      }
+
+      .btn-secondary {
+        background: var(--surface);
+        color: var(--text);
+        border: 1px solid var(--border);
+      }
+      .btn-secondary:hover {
+        border-color: rgba(255, 255, 255, 0.2);
+        transform: translateY(-2px);
+      }
+
+      /* ── VERSION BADGE ── */
+      .version-info {
+        margin-top: 48px;
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        color: var(--muted);
+        font-size: 13px;
+      }
+      .version-dot {
+        width: 8px;
+        height: 8px;
+        border-radius: 50%;
+        background: #22c55e;
+        box-shadow: 0 0 8px #22c55e;
+      }
+
+      /* ── FEATURES ── */
+      .features {
+        max-width: 1100px;
+        margin: 0 auto;
+        padding: 80px 24px;
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+        gap: 20px;
+      }
+
+      .card {
+        background: var(--surface);
+        border: 1px solid var(--border);
+        border-radius: 20px;
+        padding: 32px;
+        transition:
+          border-color 0.2s,
+          transform 0.2s;
+      }
+      .card:hover {
+        border-color: rgba(108, 99, 255, 0.4);
+        transform: translateY(-4px);
+      }
+
+      .card-icon {
+        font-size: 32px;
+        margin-bottom: 16px;
+      }
+
+      .card h3 {
+        font-size: 18px;
+        font-weight: 600;
+        margin-bottom: 10px;
+      }
+
+      .card p {
+        font-size: 14px;
+        color: var(--muted);
+        line-height: 1.7;
+      }
+
+      /* ── RELEASES ── */
+      .releases {
+        max-width: 760px;
+        margin: 0 auto;
+        padding: 0 24px 100px;
+      }
+
+      .releases h2 {
+        font-size: 2rem;
+        font-weight: 700;
+        text-align: center;
+        margin-bottom: 40px;
+        letter-spacing: -0.02em;
+      }
+
+      .release-card {
+        background: var(--surface);
+        border: 1px solid var(--border);
+        border-radius: 16px;
+        padding: 28px 32px;
+        margin-bottom: 16px;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 20px;
+        flex-wrap: wrap;
+      }
+
+      .release-meta h3 {
+        font-size: 18px;
+        font-weight: 600;
+        margin-bottom: 4px;
+      }
+      .release-meta span {
+        font-size: 13px;
+        color: var(--muted);
+      }
+
+      .release-tag {
+        display: inline-block;
+        background: rgba(34, 197, 94, 0.15);
+        color: #4ade80;
+        border: 1px solid rgba(34, 197, 94, 0.3);
+        font-size: 12px;
+        font-weight: 600;
+        padding: 4px 10px;
+        border-radius: 999px;
+        margin-left: 10px;
+      }
+
+      /* ── FOOTER ── */
+      footer {
+        border-top: 1px solid var(--border);
+        text-align: center;
+        padding: 32px 24px;
+        color: var(--muted);
+        font-size: 13px;
+      }
+      footer a {
+        color: var(--accent2);
+        text-decoration: none;
+      }
+      footer a:hover {
+        text-decoration: underline;
+      }
+    </style>
+  </head>
+  <body>
+    <!-- HERO -->
+    <section class="hero">
+      <div class="badge">✦ macOS Native App</div>
+      <h1>Your Team's<br />AI Prompt Library</h1>
+      <p>
+        SkillSync AI centralizes your best AI prompts into a shared library.
+        Find, copy, and run the right prompt in under 10 seconds — right from
+        your Menu Bar.
+      </p>
+      <div class="btn-group">
+        <a
+          href="https://github.com/manfye/SkillSyncAI_macos/releases/latest"
+          class="btn btn-primary"
+        >
+          ⬇ Download for macOS
+        </a>
+        <a
+          href="https://github.com/manfye/SkillSyncAI_macos"
+          class="btn btn-secondary"
+        >
+          View on GitHub
+        </a>
+      </div>
+      <div class="version-info">
+        <div class="version-dot"></div>
+        <span>Latest: v1.0.0 · macOS 14+ · Apple Silicon &amp; Intel</span>
+      </div>
+    </section>
+
+    <!-- FEATURES -->
+    <section class="features">
+      <div class="card">
+        <div class="card-icon">⚡</div>
+        <h3>Menu Bar Access</h3>
+        <p>
+          Access your entire prompt library from the macOS Menu Bar. No window
+          switching, no friction — just instant copy.
+        </p>
+      </div>
+      <div class="card">
+        <div class="card-icon">🏢</div>
+        <h3>Team Organizations</h3>
+        <p>
+          Create an organization, invite your team, and share approved prompts
+          across everyone's library automatically.
+        </p>
+      </div>
+      <div class="card">
+        <div class="card-icon">🔧</div>
+        <h3>Dynamic Variables</h3>
+        <p>
+          Build reusable prompt templates with
+          <code
+            style="
+              background: rgba(255, 255, 255, 0.08);
+              padding: 2px 6px;
+              border-radius: 4px;
+            "
+            >{{variables}}</code
+          >
+          that your team fills in before copying.
+        </p>
+      </div>
+      <div class="card">
+        <div class="card-icon">🔒</div>
+        <h3>Role-Based Access</h3>
+        <p>
+          Researchers create and manage prompts. Users browse and copy. Admins
+          control the organization. Clean separation of concerns.
+        </p>
+      </div>
+      <div class="card">
+        <div class="card-icon">🔄</div>
+        <h3>Auto-Updates</h3>
+        <p>
+          Powered by Sparkle. The app checks for updates automatically and
+          installs them seamlessly in the background.
+        </p>
+      </div>
+      <div class="card">
+        <div class="card-icon">☁️</div>
+        <h3>Cloud Sync</h3>
+        <p>
+          All prompts and team data are synced in real-time via Firebase
+          Firestore. Available on every Mac you sign in to.
+        </p>
+      </div>
+    </section>
+
+    <!-- RELEASES -->
+    <section class="releases">
+      <h2>Release History</h2>
+
+      <div class="release-card">
+        <div class="release-meta">
+          <h3>SkillSync AI v1.0.0 <span class="release-tag">Latest</span></h3>
+          <span>February 18, 2026 · Initial Public Release</span>
+        </div>
+        <a
+          href="https://github.com/manfye/SkillSyncAI_macos/releases/download/v1.0.0/SkillSyncAI-1.0.0.dmg"
+          class="btn btn-primary"
+          style="padding: 10px 20px; font-size: 14px"
+        >
+          ⬇ Download
+        </a>
+      </div>
+    </section>
+
+    <footer>
+      <p>
+        Built with ❤️ by <a href="https://github.com/manfye">Manfye</a> ·
+        <a href="appcast.xml">Sparkle Appcast</a> ·
+        <a href="https://github.com/manfye/SkillSyncAI_macos/releases"
+          >All Releases</a
+        >
+      </p>
+    </footer>
+  </body>
+</html>
