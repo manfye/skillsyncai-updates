@@ -5,6 +5,7 @@
     <link>https://manfye.github.io/skillsyncai-updates/appcast.xml</link>
     <description>SkillSync AI macOS App Updates</description>
     <language>en</language>
+    <sparkle:publicEdKey>dA9QLS8O9ztZYzm/MRxbdGhffNQL7gjjqdqIkqwzbVc=</sparkle:publicEdKey>
 
     <item>
       <title>Version 1.0.0</title>
