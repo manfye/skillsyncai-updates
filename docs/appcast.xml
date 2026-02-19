@@ -15,9 +15,9 @@
       <sparkle:shortVersionString>0.3</sparkle:shortVersionString>
       <sparkle:minimumSystemVersion>14.0</sparkle:minimumSystemVersion>
       <enclosure
-        url="https://github.com/manfye/SkillSyncAI_macos/releases/download/v0.3/SkillSyncAI-0.3.dmg"
-        sparkle:edSignature="REPLACE_WITH_SIGNATURE_FROM_SIGN_UPDATE_TOOL"
-        length="0"
+        url="https://github.com/manfye/skillsyncai-updates/releases/download/v0.3/SkillSyncAI-0.3.dmg"
+        sparkle:edSignature="z6yyUvYouiSG3FwplaXPkhCQ5meywApo+L9GtPje7vg0rADqMHZ3QXHxMAw4bqgOUqpfK/KkH3zZRb575Nk1AQ=="
+        length="24464984"
         type="application/octet-stream"/>
     </item>
 
