@@ -1,0 +1,87 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>SkillSync AI v0.3 — Release Notes</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      body {
+        font-family: "Inter", sans-serif;
+        background: #0a0a0f;
+        color: #f0f0f5;
+        max-width: 640px;
+        margin: 0 auto;
+        padding: 48px 24px;
+        line-height: 1.7;
+      }
+      h1 {
+        font-size: 2rem;
+        font-weight: 700;
+        margin-bottom: 8px;
+      }
+      .date {
+        color: #8888aa;
+        font-size: 14px;
+        margin-bottom: 40px;
+      }
+      h2 {
+        font-size: 1.1rem;
+        font-weight: 600;
+        color: #a78bfa;
+        margin: 32px 0 12px;
+      }
+      ul {
+        padding-left: 20px;
+      }
+      li {
+        margin-bottom: 8px;
+        color: #d0d0e0;
+      }
+      a {
+        color: #a78bfa;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>SkillSync AI v0.3</h1>
+    <p class="date">February 19, 2026 · Team Management & Usage Limits</p>
+
+    <h2>🤝 Team Management Improvements</h2>
+    <ul>
+      <li>Fixed member list population and resolved duplicate user display issues.</li>
+      <li>Added clear <strong>Org Owner</strong> labeling to distinguish admins from regular members.</li>
+      <li>Users can now see their own organizational role badge directly on the team dashboard.</li>
+      <li>Restricted team invitations and administrative controls to organization owners only.</li>
+    </ul>
+
+    <h2>🔒 Security & Permissions</h2>
+    <ul>
+      <li>Hardened Firestore security rules to ensure organization data is only accessible to authorized members.</li>
+      <li>Improved User ID mapping to prevent profile fragmentation during cross-device sign-ins.</li>
+    </ul>
+
+    <h2>📊 Subscription & Usage Limits</h2>
+    <ul>
+      <li>Introduced <strong>Usage Statistics</strong> to monitor organization member capacity.</li>
+      <li>Implemented a 100-skill limit for users on the Free plan.</li>
+      <li>Limited organizations on the Free plan to a maximum of 5 members.</li>
+      <li>Added a "PRO" badge to profiles and team lists for active subscribers.</li>
+    </ul>
+
+    <h2>🛠 Developer Mode</h2>
+    <ul>
+      <li>Added a "Pro Account (Developer Mode)" toggle in the Edit Profile sheet to easily test Pro features and limits.</li>
+    </ul>
+
+    <p style="margin-top: 40px; color: #8888aa; font-size: 13px">
+      <a href="https://manfye.github.io/skillsyncai-updates/"
+        >← Back to SkillSync AI</a
+      >
+    </p>
+  </body>
+</html>
