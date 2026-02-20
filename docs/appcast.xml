@@ -8,6 +8,20 @@
     <sparkle:publicEdKey>dA9QLS8O9ztZYzm/MRxbdGhffNQL7gjjqdqIkqwzbVc=</sparkle:publicEdKey>
 
     <item>
+      <title>Version 0.4</title>
+      <pubDate>Fri, 20 Feb 2026 10:45:00 +0800</pubDate>
+      <sparkle:releaseNotesLink>https://manfye.github.io/skillsyncai-updates/release-notes/0.4.html</sparkle:releaseNotesLink>
+      <sparkle:version>4</sparkle:version>
+      <sparkle:shortVersionString>0.4</sparkle:shortVersionString>
+      <sparkle:minimumSystemVersion>14.0</sparkle:minimumSystemVersion>
+      <enclosure
+        url="https://github.com/manfye/skillsyncai-updates/releases/download/v0.4/SkillSyncAI-0.4.dmg"
+        sparkle:edSignature="z/MuHQm1xqIZxIqog76YKQ5Q3eJ9CHs6xMzZ0NIGQ52py454KrQcddXmHmoM+V0kRCKJVOOQNLK2DtETmumwAg=="
+        length="13888603"
+        type="application/octet-stream"/>
+    </item>
+
+    <item>
       <title>Version 0.3</title>
       <pubDate>Thu, 19 Feb 2026 08:55:00 +0800</pubDate>
       <sparkle:releaseNotesLink>https://manfye.github.io/skillsyncai-updates/release-notes/0.3.html</sparkle:releaseNotesLink>

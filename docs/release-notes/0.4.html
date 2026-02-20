@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SkillSync AI v0.4 Release Notes</title>
+    <style>
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 2rem;
+            background-color: #f9f9f9;
+        }
+        .container {
+            background-color: #fff;
+            padding: 2rem;
+            border-radius: 12px;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.08);
+        }
+        h1 { color: #007AFF; margin-top: 0; }
+        h2 { color: #555; border-bottom: 1px solid #eee; padding-bottom: 0.5rem; }
+        ul { padding-left: 1.5rem; }
+        li { margin-bottom: 0.5rem; }
+        .footer { margin-top: 2rem; font-size: 0.8rem; color: #888; text-align: center; }
+        .badge {
+            display: inline-block;
+            padding: 0.2rem 0.6rem;
+            background: #007AFF;
+            color: white;
+            border-radius: 4px;
+            font-size: 0.8rem;
+            font-weight: bold;
+            vertical-align: middle;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>SkillSync AI <span class="badge">v0.4</span></h1>
+        <p>This update brings essential stability fixes and new pricing options.</p>
+
+        <h2>What's New</h2>
+        <ul>
+            <li><strong>Optimized Pricing:</strong> Pro plan is now more affordable at $2.99/mo, with a special Yearly discount.</li>
+            <li><strong>Billing Flexibility:</strong> Switch between Monthly and Yearly billing directly in the app.</li>
+        </ul>
+
+        <h2>Fixes & Improvements</h2>
+        <ul>
+            <li><strong>Database Isolation:</strong> Implemented per-user SQLite databases. Your data is now physically isolated for enhanced privacy when switching accounts.</li>
+            <li><strong>Migration Fixes:</strong> Resolved "Duplicate Column" errors that occurred during local database schema updates.</li>
+            <li><strong>Stripe Integration:</strong> Fixed authentication issues (401 errors) during the checkout process.</li>
+            <li><strong>Performance:</strong> Enabled WAL (Write-Ahead Logging) for the local database to improve responsiveness.</li>
+        </ul>
+
+        <div class="footer">
+            &copy; 2026 SkillSync AI. All rights reserved.
+        </div>
+    </div>
+</body>
+</html>
